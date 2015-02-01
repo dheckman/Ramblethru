@@ -14,6 +14,7 @@ gem 'jquery-ui-rails'
 gem 'redcarpet'
 gem 'table_print'
 gem 'unicorn'
+gem 'haml'
 
 # Make it look good
 gem 'sass-rails', '~> 4.0.3'
