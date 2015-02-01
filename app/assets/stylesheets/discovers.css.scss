@@ -11,9 +11,15 @@ body {
   font-weight:bold;
   margin: 0 auto;
   width: 50%;
+  padding-top: 30px;
 }
 .ramble span {
   color: black;
+}
+@media (max-width: 520px) {
+  .ramble {
+    width: 80%;
+  }
 }
 #map {
   width: 100%;
@@ -21,15 +27,16 @@ body {
   margin: 0 auto 0 auto;
   border-bottom: 8px solid $orange;
 }
+@media (max-height: 750px) {
+  #map {
+    height: 275px;
+  }
+}
 .notes {
   padding-top: 35px;
 }
 .api {
   padding-top: 30px;
-}
-.ramble {
-  padding-top: 30px;
-  color: black;
 }
 li {
   text-decoration: none;
@@ -88,11 +95,10 @@ span.ui-datepicker-month, .ui-datepicker-year {
   font-weight: bold;
 }
 .discover-bottom {
-  width: 500px;
-  margin: 50px auto 30px auto;
+  max-width: 500px;
+  margin: 20px auto 30px auto;
 }
 .form-inline div {
-//  width: 375px;
   display: inline-block;
 }
 .show {
@@ -164,7 +170,7 @@ a.close-modal {
 }
 .pagename {
   background-color: $green;
-  height: 230px;
+  min-height: 230px;
   margin-top: -104px;
   text-align: center;
 }
@@ -176,13 +182,19 @@ h1.discover {
   font-size: 70px;
   margin-bottom: 0px;
 }
+@media (max-width: 480px) {
+  h1.discover {
+    font-size: 40px;
+    padding: 180px 0 10px 0;
+  }
+}
 .location {
   color: $light-grey;
   font-family: monospace, sans-serif;
   font-size: 20px;
   margin-top: -18px;
 }
-div.four-title, div.ins-title {
+div.four-title, div.ins-title, div.song-title {
   font-size: 40px;
   font-family: 'menschmensch_regular';
   color: $green;
@@ -220,17 +232,18 @@ a.y-name {
   color: $light-grey;
   font-size: 16px;
   font-weight: bold;
+  padding: 0 5px 0 5px;
 }
 .reddit {
   background-color: $green;
-  height: 420px;
+  min-height: 420px;
 }
 .r-desc {
   font-family: monospace, sans-serif;
   color: $light-grey;
   font-size: 16px;
   font-weight: bold;
-  width: 450px;
+  max-width: 450px;
   margin: 0 auto 0 auto;
 }
 .r-list {
@@ -239,6 +252,7 @@ a.y-name {
   text-align: justify;
   text-align-last: justify;
   margin-top: -15px;
+  padding: 0 10px 0 10px;
 }
 .r-list:after {
   content: "";
@@ -274,12 +288,59 @@ h4.r-create {
   font-family: monospace, sans-serif;
   color: $green;
 }
+
+// songkick stuff
+
+div.song-results {
+  padding: 0 10px 0 8em;
+  font-family: monospace, sans-serif;
+  font-weight: bold;
+  color: $dark-grey;
+  text-align: left;
+  width: 50%;
+  margin: 0 auto 0 auto;
+  text-indent: -6.6em;
+}
+@media (max-width: 900px) {
+  div.song-results {
+    width: 60%;
+  }
+}
+@media (max-width: 750px) {
+  div.song-results {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  div.song-results {
+    width: 80%;
+  }
+}
+@media (max-width: 550px) {
+  div.song-results {
+    width: 90%%;
+  }
+}
+@media (max-width: 480px) {
+  div.song-results {
+    width: 100%;
+  }
+}
+a.song-results {
+  color: $orange;
+  font-family: monospace, sans-serif;
+}
+a.song-venue {
+  color: $green;
+  font-family: monospace, sans-serif;
+}
+
+//
+
+
 .fa-arrow-right, .fa-arrow-left {
   color: $green;
   font-size: 30px;
-}
-div.discover-bottom {
-  margin-top: 0px;
 }
 #or {
   font-size: 20px;
@@ -304,7 +365,7 @@ div.discover-bottom {
   margin: 15px auto 15px auto;
   background-image: url('http://i.imgur.com/9OUxrEd.png');
   border: 2px solid $orange;
-  width: 450px;
+  max-width: 450px;
   text-align: left;
   padding: 10px 10px 10px 10px;
 }
@@ -330,4 +391,18 @@ a.discover-no-notes-link {
   font-weight: bold;
   font-family: monospace, sans-serif;
   color: $orange;
+}
+@media (max-width: 1370px) {
+  a.create {
+    font-size: 40px;
+  }
+  .fa-arrow-right, .fa-arrow-left {
+    color: $green;
+    font-size: 30px;
+  }
+}
+@media (max-width: 968px) {
+  .fa-arrow-right, .fa-arrow-left {
+    display: none;
+  }
 }

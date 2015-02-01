@@ -15,7 +15,16 @@ class RamblesController < ApplicationController
     if reddit != nil
       reddit
     end
+<<<<<<< HEAD
     foursquare
+=======
+    if foursquare != nil
+      foursquare
+    end
+    if songkick != nil
+      songkick
+    end
+>>>>>>> e34d9d518de7eabe060b056af7f30145fe057b99
   end
 
   def foursquare
@@ -42,6 +51,20 @@ class RamblesController < ApplicationController
     reddit = HTTParty.get(uri.normalize)
     reddit_data = JSON.parse(reddit.body)
     @reddit_thread = reddit_data
+  end
+
+  def songkick
+    if @ramble.start_date != nil && @ramble.end_date != nil
+      response = HTTParty.get("http://api.songkick.com/api/3.0/search/locations.json?location=geo:#{@ramble.latitude},#{@ramble.longitude}&apikey=#{ENV["SONGKICK_KEY"]}")
+      response1 = response['resultsPage']['results']['location'][0]['metroArea']['id']
+      response2 = HTTParty.get("http://api.songkick.com/api/3.0/metro_areas/#{response1}/calendar.json?apikey=#{ENV["SONGKICK_KEY"]}&per_page=35&min_date=#{@ramble.start_date.to_time.strftime('%F')}&max_date=#{@ramble.end_date.to_time.strftime('%F')}")
+      @songkick = response2['resultsPage']['results']['event']
+    else
+      response = HTTParty.get("http://api.songkick.com/api/3.0/search/locations.json?location=geo:#{@ramble.latitude},#{@ramble.longitude}&apikey=#{ENV["SONGKICK_KEY"]}")
+      response1 = response['resultsPage']['results']['location'][0]['metroArea']['id']
+      response2 = HTTParty.get("http://api.songkick.com/api/3.0/metro_areas/#{response1}/calendar.json?apikey=#{ENV["SONGKICK_KEY"]}&per_page=35")
+      @songkick = response2['resultsPage']['results']['event']
+    end
   end
 
   def new
